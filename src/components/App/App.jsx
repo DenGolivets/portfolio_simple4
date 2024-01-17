@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer'
 import Sidebar from '../Sidebar/Sidebar'
 import { useDispatch } from 'react-redux'
 import { getCategories } from '../../features/categories/categoriesSlice'
+import { getProducts } from '../../features/products/productsSlice'
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(getCategories());
+        dispatch(getProducts());
     }, [dispatch]);
 
     return (
@@ -20,7 +22,6 @@ const App = () => {
         <Header />
         <div className="container">
             <Sidebar />
-            
             <AppRoutes />
         </div>
         <Footer />

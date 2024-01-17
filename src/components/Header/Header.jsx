@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles/Header.module.css'
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
@@ -6,6 +6,13 @@ import LOGO from '../../images/logo.svg'
 import Avatar from '../../images/avatar.jpg'
 
 const Header = () => {
+
+    const [searchValue, setSearchValue] = useState('');
+
+    const handleChange = (e) => {
+        setSearchValue(e.target.value);
+    };
+
     return (
         <div className={styles.header}>
             <div className={styles.logo}>
@@ -34,8 +41,8 @@ const Header = () => {
                         name='search' 
                         placeholder='Search'
                         autoComplete='off'
-                        onChange={() => {}}
-                        value=''
+                        onChange={handleChange}
+                        value={searchValue}
                         />
                     </div>
                     {false && <div className={styles.box}></div>}
